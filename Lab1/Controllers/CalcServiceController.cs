@@ -1,0 +1,48 @@
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
+namespace Lab1.Controllers {
+    public class CalcServiceController : Controller {
+        private readonly Random _random = new Random();
+        private readonly int _x;
+        private readonly int _y;
+        private readonly string _sum;
+        private readonly string _dif;
+        private readonly string _mult;
+        private readonly string _div;
+
+        public CalcServiceController() {
+            _x = _random.Next() % 11;
+            _y = _random.Next() % 11;
+            _sum = $"{_x} + {_y} = {_x + _y}";
+            _dif = $"{_x} - {_y} = {_x - _y}";
+            _mult = $"{_x} * {_y} = {_x * _y}";
+            _div = _y != 0 ? $"{_x} /  {_y} = {_x / _y}" : "Division by zero";
+        }
+        public IActionResult Index() {
+            return View();
+        }
+
+        public IActionResult PassUsingModel() {
+            return View();
+        }
+
+        public IActionResult PassUsingViewData() {
+            return View();
+        }
+        public IActionResult PassUsingViewBag() {
+            ViewBag.X = _x;
+            ViewBag.Y = _y;
+            ViewBag.Sum = _sum;
+            ViewBag.Dif = _dif;
+            ViewBag.Mutl = _mult;
+            ViewBag.Div = _div;
+            return View();
+        }
+
+        public IActionResult AccessServiceDirectly() {
+            return View();
+        }
+
+
+    }
+}
