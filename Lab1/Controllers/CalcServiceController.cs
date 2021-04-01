@@ -1,4 +1,5 @@
 ﻿using System;
+using Lab1.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace Lab1.Controllers {
     public class CalcServiceController : Controller {
@@ -18,17 +19,26 @@ namespace Lab1.Controllers {
             _mult = $"{_x} * {_y} = {_x * _y}";
             _div = _y != 0 ? $"{_x} /  {_y} = {_x / _y}" : "Division by zero";
         }
+
         public IActionResult Index() {
             return View();
         }
 
         public IActionResult PassUsingModel() {
-            return View();
+            var model = new CalcModel(_x, _y, _sum, _dif, _mult, _div);
+            return View(model);
         }
 
         public IActionResult PassUsingViewData() {
+            ViewData["X"] = _x;
+            ViewData["Y"] = _y;
+            ViewData["Sum"] = _sum;
+            ViewData["Dif"] = _dif;
+            ViewData["Mutl"] = _mult;
+            ViewData["Div"] = _div;
             return View();
         }
+
         public IActionResult PassUsingViewBag() {
             ViewBag.X = _x;
             ViewBag.Y = _y;
@@ -40,9 +50,8 @@ namespace Lab1.Controllers {
         }
 
         public IActionResult AccessServiceDirectly() {
-            return View();
+            var model = new CalcModel(_x, _y, _sum, _dif, _mult, _div);
+            return View(model);
         }
-
-
     }
 }
