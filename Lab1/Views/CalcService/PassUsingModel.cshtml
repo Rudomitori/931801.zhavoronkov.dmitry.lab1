@@ -1,15 +1,19 @@
 ﻿@model Lab1.Models.CalcModel
 @{
-    ViewBag.Title = "PassUsingViewBag - Backend1";
+    ViewBag.Title = "PassUsingModel - Backend1";
 }
-<h1>PassUsingViewBag</h1>
-<p>Rand value first: @Model.X</p>
-<p>Rand value second: @Model.Y</p>
-<p>Add:</p>
-<p>@Model.Sum</p>
-<p>Dif:</p>
-<p>@Model.Dif</p>
-<p>Mult:</p>
-<p>@Model.Mult</p>
-<p>Div:</p>
-<p>@Model.Div</p>
+<h1>PassUsingModel</h1>
+<b>Rand value first:</b> @Model.X<br />
+<b>Rand value second:</b> @Model.Y<br />
+
+<b>Add:</b><br />
+@Model.Sum<br />
+
+<b>Dif:</b><br />
+@Model.Dif<br />
+
+<b>Mult:</b><br />
+@Model.Mult<br />
+
+<b>Div:</b><br />
+@Model.Div<br />

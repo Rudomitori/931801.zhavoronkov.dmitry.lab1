@@ -34,7 +34,7 @@ namespace Lab1.Controllers {
             ViewData["Y"] = _y;
             ViewData["Sum"] = _sum;
             ViewData["Dif"] = _dif;
-            ViewData["Mutl"] = _mult;
+            ViewData["Mult"] = _mult;
             ViewData["Div"] = _div;
             return View();
         }
@@ -44,7 +44,7 @@ namespace Lab1.Controllers {
             ViewBag.Y = _y;
             ViewBag.Sum = _sum;
             ViewBag.Dif = _dif;
-            ViewBag.Mutl = _mult;
+            ViewBag.Mult = _mult;
             ViewBag.Div = _div;
             return View();
         }
